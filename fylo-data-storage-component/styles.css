@@ -1,0 +1,284 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --gradient: linear-gradient(to right,  hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+}
+body {
+  background: hsl(229, 57%, 11%);
+  background-image: url("images/bg-desktop.png");
+  background-repeat: no-repeat;
+  background-position-y: 50vh;
+  background-size: 140%;
+  font-family: 'Raleway', sans-serif;
+}
+/*General styles applied to the whole page
+*/article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
+  height: 100vh;
+}
+.logos{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 6rem 3rem 3rem;
+  background: hsl(228, 56%, 26%);
+  border-radius: 1.5rem 6rem 1.5rem 1.5rem;  
+}
+.logos .logo{
+  padding-bottom: 1.5rem;
+}
+.items{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.items a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(229, 57%, 11%);
+  border-radius: 0.4rem;
+  height: 3rem;
+  width: 3rem;
+}
+.item a svg{
+  height: 1.5rem;
+  width: 1.5rem;
+
+}
+.item + .item{
+  margin-left: 1.5rem;
+}
+.storage{
+  padding: 3rem;
+  background: hsl(228, 56%, 26%);
+  margin-top: 36px;
+  margin-left: 30px;
+  border-radius: 1.5rem;
+
+  position: relative;
+}
+.storage .resume{
+  background: white;
+  padding: 0.9rem;
+  width: max-content;
+  max-width: 100%;
+  border-radius: 10px;
+  border-bottom-right-radius: 0;
+
+  position: absolute;
+  top: -30px;
+  right: 3rem;
+}
+.storage p{
+  color: white;
+  padding-bottom: 0.5rem;
+}
+.storage .resume .normal {
+  color: hsl(229, 7%, 55%);
+  text-align: center;
+  font-weight: 700;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.storage .resume .normal .heavy {
+  font-size: 2rem;
+  margin-left: 20%;
+  color: black;
+  margin: 0;
+}
+/*styles for the while dialog box */
+.storage .resume::after {
+  content: '';
+  border: 10px solid transparent;
+  border-top-color: black;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  border-top: 10px solid white;
+  border-right: 10px solid white;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid transparent;
+}
+.storage .progress {
+  background: hsl(229, 57%, 11%);
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 5px;
+  display: flex;
+  height: 1.5em;
+  width: 30rem;
+}
+/*Styles for the progress meter */
+.storage .progress .progress-value{
+  animation: load 3s normal forwards;
+  border-radius: 100px;
+  background: var(--gradient);
+  height: 1rem;
+  width: 0;
+}
+/*Distance for the Animation to load*/
+@keyframes load {
+  0% { width: 0; }
+  100% { width: 60%; }
+}
+.storage .legend {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: 700;
+}
+/*Display on the desktop and laptop size screen*/
+@media (max-width: 1180px ){
+
+  body{
+    background-size: 180%;
+  }
+
+}
+/*Display on smaller laptop screen size*/
+@media (max-width: 990px){
+
+  body {
+    background-size: 180%;
+  }
+  .storage .progress{
+    width: 25rem;
+  }
+}
+
+@media (max-width: 900px ){
+
+  body {
+    background-size: 200%;
+  }
+  .storage .progress{
+    width: 20rem;
+  }
+}
+/*Display on the tablet screen size*/
+@media (max-width: 800px){
+  
+body{
+  background-image: url("images/bg-desktop.png");
+  background-size: 400%;
+  background-repeat: no-repeat;
+}
+  article{
+    flex-direction: column;
+  }
+  .logos{
+    padding-right: 11.5rem;
+    border-radius: 1.5rem 6rem .7rem 1.5rem;
+  }
+  .storage {
+    margin-left: 0;
+    margin-top: 10px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .storage .resume {
+    top: 80%;
+    right: 35%;
+    border-radius: 10px;
+  }
+  .storage .resume p{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .storage .resume::after {
+    display: none;
+  }
+  .storage .resume .normal {
+    font-size: 18px;
+  }
+  .storage .resume .normal .heavy {
+    font-size: 2.5rem;
+  }
+}
+/*Display on the phone screen size*/
+@media (max-width: 500px){
+
+  body{
+    background-size: 500%;
+    background-image: url("images/bg-desktop.png");
+  }
+  .logos{
+    padding-right: 7.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .storage{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .storage p{
+    padding-bottom: 1rem;
+  }
+
+  .storage .resume{
+    right: 28%;
+  }
+
+  .storage .progress{
+    width: 18rem;
+  }
+
+  .storage .legend p{
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+  }
+}
+/*Display on smaller screen size*/
+@media (max-width: 400px){
+  .logos{
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    padding-right: 4.5rem;
+    padding-left: 2rem;
+  }
+
+  .logos .items a {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .storage p{
+    font-size: small;
+  }
+
+  .storage .progress{
+    width: 15rem;
+    height: 1rem;
+  }
+
+  .storage .progress .progress-value {
+    height: .5rem;
+  }
+
+  .storage .resume{
+    right: 32%;
+  }
+
+  .storage .resume .normal{
+    font-size: 12px;
+  }
+
+  .storage .resume .normal .heavy{
+    font-size: 1.5rem;
+  }
+}
